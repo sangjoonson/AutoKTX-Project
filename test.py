@@ -25,3 +25,6 @@ driver.find_element(By.ID, 'srchDvNm01').send_keys(id) # 회원번호
 driver.find_element(By.ID, 'hmpgPwdCphd01').send_keys(pw) # 비밀번호
 driver.find_element(By.XPATH, '//*[@id="login-form"]/fieldset/div[1]/div[1]/div[2]/div/div[2]/input').click()
 driver.implicitly_wait(5)
+
+driver.get('https://etk.srail.kr/hpg/hra/01/selectScheduleList.do')
+driver.implicitly_wait(5)
