@@ -11,23 +11,12 @@ import time
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 
 # 웹 페이지 열기
-driver.get("https://naver.com")
+driver.get("https://etk.srail.co.kr/cmc/01/selectLoginForm.do")
 
-# 페이지 요소 찾기 및 동작 수행
-# 예: 검색창에 텍스트 입력 후 엔터키 누르기
-search_box = driver.find_element(By.NAME, "q")
-search_box.send_keys("Python 웹 매크로")
-search_box.send_keys(Keys.RETURN)
+driver.implicitly_wait(15) # 페이지 다 뜰 때 까지 기다림
 
-# 몇 초 대기 (페이지 로딩 대기)
-time.sleep(3)
+driver.find_element(By.ID, 'srchDvNm01').send_keys('12345677234') # 회원번호
+driver.find_element(By.ID, 'hmpgPwdCphd01').send_keys("1111111111") # 비밀번호
 
-# 다른 동작 수행 예: 첫 번째 검색 결과 클릭
-first_result = driver.find_element(By.CSS_SELECTOR, "h3 > a")
-first_result.click()
-
-# 몇 초 대기
-time.sleep(3)
-
-# 브라우저 닫기
-driver.quit()
+driver.find_element(By.XPATH, '//*[@id="login-form"]/fieldset/div[1]/div[1]/div[2]/div/div[2]/input').click()
+driver.implicitly_wait(5)
